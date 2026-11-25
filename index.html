@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AXION HUB</title>
+
+    <style>
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+       body {
+    background:
+        radial-gradient(ellipse at 50% -20%, #8b45ff45, transparent 55%),
+        radial-gradient(circle at 0% 50%, #6425aa25, transparent 35%),
+        radial-gradient(circle at 100% 80%, #8b45ff20, transparent 35%),
+        #080811;
+    background-size: 100% 100%;
+    color: #f5f0ff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes backgroundMove {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+
+@keyframes sectionAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.98);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+        header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(13, 12, 25, 0.85);
+    border-bottom: 1px solid #30234a;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 5px 25px #00000040;
+}
+        .logo {
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            color: #9d65ff;
+
+        }
+
+      .hero {
+    text-align: center;
+    padding: 110px 20px 65px;
+    margin: 35px 20px;
+    border: 1px solid #9b5cff70;
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 50% 0%, #8b45ff35, transparent 55%),
+        linear-gradient(145deg, #251442, #111020 60%, #090914);
+    box-shadow:
+        0 25px 60px #00000080,
+        0 0 40px #8b45ff25,
+        inset 0 1px 2px #ffffff20;
+    transition: all 0.35s ease;
+}
+
+.hero:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 30px 65px #00000090,
+        0 0 55px #8b45ff40;
+}
+
+.hero:hover {
+    transform: translateY(-12px);
+    box-shadow:
+        0 30px 60px #000000aa,
+        0 15px 45px #8b45ff55,
+        inset 0 2px 3px #ffffff30;
+}
+
+.hero:hover {
+    border-color: #8b45ff88;
+    box-shadow: 0 0 45px #8b45ff35;
+}
+
+.gradient-title {
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #b98aff,
+        #8b45ff,
+        #ffffff
+    );
+    background-size: 300% 100%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: titleShine 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px #8b45ff88);
+}
+
+@keyframes titleShine {
+    0% { background-position: 0% center; }
+    100% { background-position: 300% center; }
+}
+
+        button {
+    background: linear-gradient(135deg, #a855f7, #7135d9);
+    color: white;
+    border: 1px solid #c084fc50;
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 20px #8b45ff35;
+    transition: all 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px #8b45ff70;
+    filter: brightness(1.15);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+        button:hover {transition: all 0.25s ease;
+    background: #a46aff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px #8b45ff55;
+}
+
+        .secondary {
+
+            background: transparent;
+
+            border: 1px solid #8b45ff;
+
+        }
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-top: 35px;
+
+        }
+
+        .games {
+
+            display: none;
+
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 55px 20px;
+
+            text-align: center;
+
+        }
+
+        .games h2 {
+
+            font-size: 32px;
+
+            margin-bottom: 12px;
+
+        }
+
+        .games-description {
+
+            color: #aaa;
+
+            margin-bottom: 35px;
+
+        }
+
+        .game-list {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 15px;
+
+            text-align: left;
+
+        }
+
+        .game {
+    background: #111120;
+    border: 1px solid #292943;
+    border-radius: 12px;
+    padding: 25px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.game:hover {
+    transform: translateY(-5px);
+    border-color: #8b45ff;
+}
+        
+
+        .game h3 {
+
+            color: #b68aff;
+
+            margin-bottom: 10px;
+
+        }
+
+        .game p {
+
+            color: #999;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+        }
+
+        .game button {
+
+            margin-top: 18px;
+
+            padding: 10px 20px;
+
+        }
+
+        .status {
+
+            display: block;
+
+            margin-top: 18px;
+
+            color: #888;
+
+            font-size: 12px;
+
+        }
+
+        .screen {
+
+            display: none;
+
+            text-align: center;
+
+            max-width: 500px;
+
+            margin: auto;
+
+            padding: 65px 20px;
+
+        }
+
+        .screen h2 {
+
+            font-size: 32px;
+
+            margin-bottom: 15px;
+
+        }
+
+        .screen p {
+
+            color: #aaa;
+
+            margin-bottom: 25px;
+
+        }
+
+        input {
+
+            background: #111120;
+
+            border: 1px solid #39304e;
+
+            border-radius: 9px;
+
+            padding: 14px;
+
+            width: 150px;
+
+            color: white;
+
+            font-size: 18px;
+
+            text-align: center;
+
+            outline: none;
+
+            margin-right: 8px;
+
+        }
+
+        input:focus {
+
+            border-color: #9d65ff;
+
+        }
+
+        #message {
+
+            margin-top: 25px;
+
+            min-height: 25px;
+
+            color: #b68aff;
+
+        }
+
+        #attempts {
+
+            color: #888;
+
+            margin-top: 12px;
+
+        }
+
+        .back {
+
+            margin-top: 30px;
+
+        }
+
+        /* Хрестики-нулики */
+
+        .board {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 90px);
+
+            gap: 8px;
+
+            justify-content: center;
+
+            margin: 25px auto;
+
+        }
+
+        .cell {
+
+            width: 90px;
+
+            height: 90px;
+
+            padding: 0;
+
+            font-size: 38px;
+
+            font-weight: bold;
+
+            background: #111120;
+
+            border: 1px solid #39304e;
+
+            border-radius: 10px;
+
+        }
+
+        .cell:hover {
+
+            background: #211536;
+
+        }
+
+        #ticMessage {
+
+            color: #b68aff;
+
+            min-height: 25px;
+
+            margin: 20px 0;
+
+        }
+
+        #score {
+
+            color: #aaa;
+
+            margin-top: 15px;
+
+        }
+
+        .tools {
+
+            display: none;
+
+            max-width: 500px;
+
+            margin: auto;
+
+            padding: 55px 20px;
+
+            text-align: center;
+
+        }
+
+        .tools h2 {
+
+            font-size: 32px;
+
+            margin-bottom: 12px;
+
+        }
+
+        .calculator {
+
+            background: #111120;
+
+            border: 1px solid #292943;
+
+            border-radius: 12px;
+
+            padding: 18px;
+
+            max-width: 320px;
+
+            margin: 25px auto;
+
+        }
+
+        .calc-display {
+
+            width: 100%;
+
+            margin: 0 0 14px;
+
+            text-align: right;
+
+            font-size: 26px;
+
+        }
+
+        .calc-buttons {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 8px;
+
+        }
+
+        .calc-buttons button {
+
+            padding: 14px 8px;
+
+            min-width: 0;
+
+        }
+
+        .memory-board {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 10px;
+
+            max-width: 360px;
+
+            margin: 25px auto;
+
+        }
+
+        .memory-card {
+
+            aspect-ratio: 1;
+
+            padding: 0;
+
+            font-size: 30px;
+
+            background: #171427;
+
+            border: 1px solid #39304e;
+
+            border-radius: 10px;
+
+        }
+
+        .memory-card:hover {
+
+            background: #2a1b43;
+
+        }
+
+        .memory-card.matched {
+
+            background: #211536;
+
+            border-color: #8b45ff;
+
+            cursor: default;
+
+        }
+
+        #memoryStats {
+
+            color: #aaa;
+
+            margin: 15px 0;
+
+        }
+
+        #memoryMessage {
+
+            color: #b68aff;
+
+            min-height: 24px;
+
+            margin-top: 12px;
+
+        }
+
+        .reaction-area {
+
+            max-width: 440px;
+
+            min-height: 220px;
+
+            margin: 25px auto;
+
+            padding: 28px 20px;
+
+            border: 1px solid #39304e;
+
+            border-radius: 14px;
+
+            background: #111120;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 16px;
+
+            transition: background 0.15s, border-color 0.15s;
+
+        }
+
+        .reaction-area.waiting { background: #392d16; border-color: #9a762e; }
+
+        .reaction-area.ready { background: #176b43; border-color: #42d98b; cursor: pointer; }
+
+        .reaction-area.too-soon { background: #55252d; border-color: #b94a5a; }
+
+        .reaction-area p { margin: 0; color: white; line-height: 1.5; }
+
+        #reactionResult { color: #b68aff; min-height: 24px; margin: 12px 0; }
+
+        #reactionStats { color: #aaa; line-height: 1.8; }
+
+
+
+        .profile-avatar {
+            font-size: 52px;
+            margin: 12px 0 20px;
+        }
+
+        .profile-name {
+            width: min(100%, 280px);
+            margin: 10px auto 16px;
+        }
+
+        .avatar-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0 25px;
+        }
+
+        .avatar-options button {
+            padding: 9px;
+            min-width: 44px;
+            background: #171427;
+            border: 1px solid #39304e;
+            font-size: 22px;
+        }
+
+        .avatar-options button.selected {
+            border-color: #9d65ff;
+            background: #2a1b43;
+        }
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 22px 0;
+}
+
+.profile-level {
+    background: #111120;
+    border: 1px solid #292943;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 18px 0;
+    text-align: left;
+}
+
+.profile-level strong {
+    color: #b68aff;
+}
+
+.xp-bar {
+    height: 9px;
+    background: #292943;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.xp-progress {
+    height: 100%;
+    width: 0%;
+    background: #9d65ff;
+    border-radius: 10px;
+    transition: width 0.3s;
+}
+
+        .profile-stat {
+            background: #111120;
+            border: 1px solid #292943;
+            border-radius: 10px;
+            padding: 16px 10px;
+        }
+
+        .profile-stat strong {
+            display: block;
+            color: #b68aff;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .profile-stat span {
+            color: #999;
+            font-size: 13px;
+        }
+
+        footer {
+
+            text-align: center;
+
+            color: #666;
+
+            padding: 40px 20px;
+
+            font-size: 13px;
+
+        }
+
+        @media (max-width: 550px) {
+
+            .game-list {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .hero h1 {
+
+                font-size: 34px;
+
+            }
+
+        }
+.language-hint {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-top: 6px;
+}
+    </style>
+
+</head>
+
+<body>
+
+    <div class="language-switcher">
+    <button onclick="changeLanguage('uk')">🇺🇦 UA</button>
+    <button onclick="changeLanguage('en')">🇬🇧 EN</button>
+    <button onclick="changeLanguage('ru')">🇷🇺 RU</button>
+    <p class="language-hint">Щоб змінити мову, онови сторінку (F5)</p>
+</div>
+</div>
+    
+
+    <header>
+
+        <div class="logo">AXION HUB</div>
+        <button class="secondary" onclick="openProfile()">Профіль</button>
+
+    </header>
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <h1 class="gradient-title" data-i18n="welcome">Welcome to AXION HUB</h1>
+
+            <p data-i18n="tagline">Твій власний цифровий простір.</p>
+
+            <div class="buttons">
+
+                <button onclick="openGames()" data-i18n="games">Ігри</button>
+
+                <button class="secondary" onclick="openTools()" data-i18n="tools">Інструменти</button>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="screen" id="profile">
+            <h2>Профіль гравця</h2>
+            <div class="profile-avatar" id="profileAvatar">🎮</div>
+            <p>Твій нікнейм</p>
+            <input class="profile-name" type="text" id="profileName" maxlength="18" placeholder="Введи нікнейм">
+            <p>Обери аватар</p>
+            <div class="avatar-options" id="avatarOptions">
+                <button type="button" onclick="chooseAvatar('🎮')">🎮</button>
+                <button type="button" onclick="chooseAvatar('👾')">👾</button>
+                <button type="button" onclick="chooseAvatar('🚀')">🚀</button>
+                <button type="button" onclick="chooseAvatar('🐱')">🐱</button>
+                <button type="button" onclick="chooseAvatar('⚡')">⚡</button>
+                <button type="button" onclick="chooseAvatar('🔥')">🔥</button>
+            </div>
+            <div class="profile-stats">
+                <div class="profile-stat"><strong id="gamesPlayed">0</strong><span>Зіграно партій</span></div>
+                <div class="profile-stat"><strong id="gamesWon">0</strong><span>Перемог</span></div>
+                <div class="profile-stat"><strong id="profileReactionBest">—</strong><span>Рекорд реакції</span></div>
+                <div class="profile-stat"><strong id="profileWinRate">0%</strong><span>Відсоток перемог</span></div>
+            </div>
+            
+            <div class="profile-level">
+    <strong>Рівень <span id="playerLevel">1</span></strong>
+    <p><span id="playerXP">0</span> / 100 XP</p>
+    <div class="xp-bar">
+        <div class="xp-progress" id="xpProgress"></div>
+    </div>
+</div><button onclick="saveProfile()">Зберегти профіль</button> <button onclick="openAxionID()">Мій AXION ID</button>
+            <button class="secondary back" onclick="goHome()">На головну</button>
+        </section>
+
+        <section class="games" id="games">
+
+            <h2 data-i18n="games">Ігри</h2>
+
+           <p class="games-description" data-i18n="gamesDescription">Обирай гру та розважайся!</p>
+
+            <div class="game-list">
+
+                <div class="game">
+
+                    <h3>Вгадай число</h3>
+
+                    <p>Вгадай число від 1 до 100!</p>
+
+                    <button onclick="openGuessGame()">Грати</button>
+
+                </div>
+
+                <div class="game">
+
+                    <h3>Хрестики-нулики</h3>
+
+                    <p>Зіграємо проти комп'ютера.</p>
+
+                    <button onclick="openTicGame()">Грати</button>
+
+                </div>
+
+                <div class="game">
+
+                    <h3>Memory</h3>
+
+                    <p>Знаходь однакові картки.</p>
+
+                    <button onclick="openMemoryGame()">Грати</button>
+
+                </div>
+
+                <div class="game">
+
+                    <h3>Reaction Test</h3>
+
+                    <p>Перевір швидкість своєї реакції.</p>
+
+                    <button onclick="openReactionGame()">Грати</button>
+
+                </div>
+
+            </div>
+
+            <button class="back" onclick="goHome()">Назад</button>
+
+        </section>
+<section class="screen" id="axionID">
+
+    <h2>AXION ID</h2>
+
+    <div class="axion-id-card">
+
+        <div id="axionAvatar">🎮</div>
+
+        <h3 id="axionName">Гравець</h3>
+
+        <p>AXION PLAYER</p> <p class="axion-player-id">
+    ID: <span id="axionPlayerID">AX-000000</span>
+</p> <button onclick="copyAxionID()">Скопіювати ID</button>
+
+        <h2>Рівень <span id="axionLevel">1</span></h2>
+
+        <p><span id="axionXP">0</span> / 100 XP</p>
+
+        <p>🏆 Перемоги: <span id="axionWins">0</span></p>
+
+        <p>🎮 Зіграно: <span id="axionGames">0</span></p>
+
+        <p>📊 Перемоги: <span id="axionRate">0%</span></p>
+
+    </div>
+
+    <button class="secondary back" onclick="openProfile()">До профілю</button>
+
+</section>
+        <!-- Вгадай число -->
+
+        <section class="screen" id="guessGame">
+
+            <h2>Вгадай число</h2>
+
+            <p>Я загадав число від 1 до 100!</p>
+
+            <input type="number" id="guessInput"
+
+                min="1" max="100" placeholder="Число">
+
+            <button onclick="checkGuess()">Перевірити</button>
+
+            <div id="message">Чекаю на твою відповідь!</div>
+
+            <div id="attempts">Спроби: 0</div>
+
+            <button class="secondary back" onclick="resetGame()">
+
+                Нова гра
+
+            </button>
+
+            <button class="back" onclick="backToGames()">
+
+                До ігор
+
+            </button>
+
+        </section>
+
+        <!-- Хрестики-нулики -->
+
+        <section class="screen" id="ticGame">
+
+            <h2>Хрестики-нулики</h2>
+
+            <p>Ти граєш за X, комп'ютер — за O.</p>
+
+            <div class="board">
+
+                <button class="cell" onclick="makeMove(0)"></button>
+
+                <button class="cell" onclick="makeMove(1)"></button>
+
+                <button class="cell" onclick="makeMove(2)"></button>
+
+                <button class="cell" onclick="makeMove(3)"></button>
+
+                <button class="cell" onclick="makeMove(4)"></button>
+
+                <button class="cell" onclick="makeMove(5)"></button>
+
+                <button class="cell" onclick="makeMove(6)"></button>
+
+                <button class="cell" onclick="makeMove(7)"></button>
+
+                <button class="cell" onclick="makeMove(8)"></button>
+
+            </div>
+
+            <div id="ticMessage">Твій хід!</div>
+
+            <div id="score">Ти: 0 | Комп'ютер: 0 | Нічия: 0</div>
+
+            <button onclick="newTicGame()">Нова гра</button>
+
+            <br>
+
+            <button class="secondary back" onclick="backToGames()">
+
+                До ігор
+
+            </button>
+
+        </section>
+
+        <!-- Memory -->
+
+        <section class="screen" id="memoryGame">
+
+            <h2>Memory</h2>
+
+            <p>Знайди всі 8 пар однакових карток!</p>
+
+            <div id="memoryStats">Ходи: 0 | Знайдено пар: 0/8</div>
+
+            <div class="memory-board" id="memoryBoard"></div>
+
+            <div id="memoryMessage">Обери дві картки!</div>
+
+            <button class="secondary back" onclick="newMemoryGame()">Нова гра</button>
+
+            <button class="back" onclick="backToGames()">До ігор</button>
+
+        </section>
+
+        <!-- Reaction Test -->
+
+        <section class="screen" id="reactionGame">
+
+            <h2>Reaction Test</h2>
+
+            <p>Натисни на поле, щойно воно стане зеленим. Не поспішай!</p>
+
+            <div class="reaction-area" id="reactionArea" onclick="reactionClick()">
+
+                <p id="reactionPrompt">Натисни «Почати тест», щоб почати.</p>
+
+            </div>
+
+            <div id="reactionResult">Тест складається з 5 раундів.</div>
+
+            <div id="reactionStats">Раунд: 0/5 | Середній час: — | Рекорд: —</div>
+
+            <button id="reactionStart" onclick="startReactionTest()">Почати тест</button>
+
+            <button class="secondary back" onclick="backToGames()">До ігор</button>
+
+        </section>
+
+        <section class="games" id="tools">
+
+            <h2>Інструменти</h2>
+
+            <p class="games-description">Обирай інструмент, який тобі потрібен!</p>
+
+            <div class="game-list">
+
+                <div class="game">
+
+                    <h3>Калькулятор</h3>
+
+                    <p>Прості та швидкі математичні обчислення.</p>
+
+                    <button onclick="openCalculator()">Відкрити</button>
+
+                </div>
+<div class="game">
+
+    <h3>Нотатки</h3>
+
+    <p>Створюй та зберігай свої нотатки.</p>
+
+    <button onclick="openNotes()">Відкрити</button>
+
+</div>
+            </div>
+
+            <button class="back" onclick="goHome()">На головну</button>
+
+        </section>
+
+        <section class="screen" id="calculator">
+
+            <h2>Калькулятор</h2>
+
+            <p>Виконуй прості математичні обчислення.</p>
+
+            <div class="calculator">
+
+                <input class="calc-display" type="text" id="calcDisplay" value="0" readonly aria-label="Екран калькулятора">
+
+                <div class="calc-buttons">
+
+                    <button class="secondary" onclick="clearCalc()">C</button>
+
+                    <button class="secondary" onclick="deleteCalc()">⌫</button>
+
+                    <button class="secondary" onclick="appendCalc('/')">÷</button>
+
+                    <button class="secondary" onclick="appendCalc('*')">×</button>
+
+                    <button onclick="appendCalc('7')">7</button><button onclick="appendCalc('8')">8</button><button onclick="appendCalc('9')">9</button><button class="secondary" onclick="appendCalc('-')">−</button>
+
+                    <button onclick="appendCalc('4')">4</button><button onclick="appendCalc('5')">5</button><button onclick="appendCalc('6')">6</button><button class="secondary" onclick="appendCalc('+')">+</button>
+
+                    <button onclick="appendCalc('1')">1</button><button onclick="appendCalc('2')">2</button><button onclick="appendCalc('3')">3</button><button class="secondary" onclick="calculate()">=</button>
+
+                    <button onclick="appendCalc('0')">0</button><button onclick="appendCalc('.')">.</button>
+
+                </div>
+
+            </div>
+
+            <button class="secondary back" onclick="openTools()">До інструментів</button>
+
+        </section> <section class="screen" id="notes">
+
+    <h2>Нотатки</h2>
+
+    <p>Твої особисті нотатки.</p>
+
+    <textarea id="noteInput" placeholder="Напиши щось..."></textarea>
+
+    <button onclick="saveNote()">Зберегти</button>
+
+    <div id="notesList"></div>
+
+    <button class="secondary back" onclick="openTools()">До інструментів</button>
+
+</section>
+
+</main>
+
+    <footer>
+
+        © 2026 AXION HUB
+
+    </footer>
+
+    <script>
+
+        // Навігація
+
+      // Повна система мов AXION HUB
+const uiText = {
+  "Профіль": ["Profile", "Профиль"],
+  "Профіль гравця": ["Player profile", "Профиль игрока"],
+  "Твій нікнейм": ["Your nickname", "Твой никнейм"],
+  "Введи нікнейм": ["Enter nickname", "Введи никнейм"],
+  "Обери аватар": ["Choose an avatar", "Выбери аватар"],
+  "Зіграно партій": ["Games played", "Сыграно партий"],
+  "Перемоги": ["Wins", "Победы"],
+  "Перемог": ["Wins", "Побед"],
+  "Рекорд реакції": ["Reaction record", "Рекорд реакции"],
+  "Відсоток перемог": ["Win rate", "Процент побед"],
+  "Рівень": ["Level", "Уровень"],
+  "Зберегти профіль": ["Save profile", "Сохранить профиль"],
+  "Мій AXION ID": ["My AXION ID", "Мой AXION ID"],
+  "На головну": ["Home", "На главную"],
+  "Головна": ["Home", "Главная"], "Ігри": ["Games", "Игры"],
+  "Інструменти": ["Tools", "Инструменты"],
+  "Ласкаво просимо до AXION HUB": ["Welcome to AXION HUB", "Добро пожаловать в AXION HUB"],
+  "Welcome to AXION HUB": ["Welcome to AXION HUB", "Добро пожаловать в AXION HUB"],
+  "Твій власний цифровий простір.": ["Your own digital space.", "Твоё собственное цифровое пространство."],
+  "Обирай гру та розважайся!": ["Choose a game and have fun!", "Выбирай игру и развлекайся!"],
+  "Вгадай число": ["Guess the number", "Угадай число"],
+  "Вгадай число від 1 до 100!": ["Guess a number from 1 to 100!", "Угадай число от 1 до 100!"],
+  "Хрестики-нулики": ["Tic-tac-toe", "Крестики-нолики"],
+  "Зіграємо проти комп'ютера.": ["Play against the computer.", "Сыграем против компьютера."],
+  "Знаходь однакові картки.": ["Find matching cards.", "Находи одинаковые карточки."],
+  "Перевір швидкість своєї реакції.": ["Test your reaction speed.", "Проверь скорость своей реакции."],
+  "Грати": ["Play", "Играть"], "Назад": ["Back", "Назад"],
+  "AXION ID": ["AXION ID", "AXION ID"], "Гравець": ["Player", "Игрок"],
+  "Скопіювати ID": ["Copy ID", "Скопировать ID"], "До профілю": ["To profile", "К профилю"],
+  "Я загадав число від 1 до 100!": ["I picked a number from 1 to 100!", "Я загадал число от 1 до 100!"],
+  "Число": ["Number", "Число"], "Перевірити": ["Check", "Проверить"],
+  "Чекаю на твою відповідь!": ["Waiting for your guess!", "Жду твоего ответа!"],
+  "Спроби: ": ["Attempts: ", "Попытки: "], "Спроби: 0": ["Attempts: 0", "Попытки: 0"],
+  "Введи число від 1 до 100!": ["Enter a number from 1 to 100!", "Введи число от 1 до 100!"],
+  "Правильно! Ти вгадав! 🎉": ["Correct! You guessed it! 🎉", "Правильно! Ты угадал! 🎉"],
+  "Моє число більше!": ["My number is higher!", "Моё число больше!"],
+  "Моє число менше!": ["My number is lower!", "Моё число меньше!"],
+  "Нова гра": ["New game", "Новая игра"], "До ігор": ["To games", "К играм"],
+  "Ти граєш за X, комп'ютер — за O.": ["You play as X, the computer is O.", "Ты играешь за X, компьютер — за O."],
+  "Твій хід!": ["Your turn!", "Твой ход!"], "Ти переміг! 🎉": ["You won! 🎉", "Ты победил! 🎉"],
+  "Комп'ютер переміг!": ["The computer won!", "Компьютер победил!"], "Нічия!": ["It's a draw!", "Ничья!"],
+  "Хід комп'ютера...": ["Computer's turn...", "Ход компьютера..."],
+  "Ти: ": ["You: ", "Ты: "], " | Комп'ютер: ": [" | Computer: ", " | Компьютер: "], " | Нічия: ": [" | Draws: ", " | Ничьи: "],
+  "Знайди всі 8 пар однакових карток!": ["Find all 8 matching pairs!", "Найди все 8 пар одинаковых карточек!"],
+  "Ходи: ": ["Moves: ", "Ходы: "], " | Знайдено пар: ": [" | Pairs found: ", " | Найдено пар: "],
+  "Ходи: 0 | Знайдено пар: 0/8": ["Moves: 0 | Pairs found: 0/8", "Ходы: 0 | Найдено пар: 0/8"],
+  "Обери дві картки!": ["Choose two cards!", "Выбери две карточки!"], "Закрита картка": ["Face-down card", "Закрытая карточка"],
+  "Перемога! Ти знайшов усі пари за ": ["You won! You found all pairs in ", "Победа! Ты нашёл все пары за "],
+  " ходів! 🎉": [" moves! 🎉", " ходов! 🎉"],
+  "Натисни на поле, щойно воно стане зеленим. Не поспішай!": ["Click the area as soon as it turns green. Don't rush!", "Нажми на поле, как только оно станет зелёным. Не спеши!"],
+  "Натисни «Почати тест», щоб почати.": ["Press “Start test” to begin.", "Нажми «Начать тест», чтобы начать."],
+  "Тест складається з 5 раундів.": ["The test has 5 rounds.", "Тест состоит из 5 раундов."],
+  "Почати тест": ["Start test", "Начать тест"], "Чекай на зелений колір...": ["Wait for the green color...", "Жди зелёного цвета..."],
+  "НАТИСКАЙ!": ["CLICK!", "ЖМИ!"], "Зарано! 😅": ["Too soon! 😅", "Рано! 😅"],
+  "Натисни «Почати тест» і спробуй ще раз.": ["Press “Start test” and try again.", "Нажми «Начать тест» и попробуй ещё раз."],
+  "Спробувати ще раз": ["Try again", "Попробовать ещё раз"],
+  "Тест завершено! 🎉": ["Test complete! 🎉", "Тест завершён! 🎉"],
+  "Пройти ще раз": ["Try again", "Пройти ещё раз"],
+  "Раунд: ": ["Round: ", "Раунд: "], " | Середній час: ": [" | Average time: ", " | Среднее время: "], " | Рекорд: ": [" | Best: ", " | Рекорд: "],
+  "Твій середній час: ": ["Your average time: ", "Твоё среднее время: "], "Час: ": ["Time: ", "Время: "], " мс. Наступний раунд!": [" ms. Next round!", " мс. Следующий раунд!"], " мс": " ms",
+  "Обирай інструмент, який тобі потрібен!": ["Choose the tool you need!", "Выбирай нужный инструмент!"],
+  "Калькулятор": ["Calculator", "Калькулятор"], "Прості та швидкі математичні обчислення.": ["Simple and quick calculations.", "Простые и быстрые математические вычисления."],
+  "Виконуй прості математичні обчислення.": ["Perform simple calculations.", "Выполняй простые математические вычисления."],
+  "Відкрити": ["Open", "Открыть"], "Нотатки": ["Notes", "Заметки"],
+  "Створюй та зберігай свої нотатки.": ["Create and save your notes.", "Создавай и сохраняй свои заметки."],
+  "Твої особисті нотатки.": ["Your personal notes.", "Твои личные заметки."], "Напиши щось...": ["Write something...", "Напиши что-нибудь..."],
+  "Зберегти": ["Save", "Сохранить"], "Видалити": ["Delete", "Удалить"],
+  "Спочатку напиши нотатку!": ["Write a note first!", "Сначала напиши заметку!"], "Профіль збережено!": ["Profile saved!", "Профиль сохранён!"],
+  "Скопійовано!": ["Copied!", "Скопировано!"], "Екран калькулятора": ["Calculator display", "Экран калькулятора"],
+  "Помилка": ["Error", "Ошибка"],
+"Щоб змінити мову, онови сторінку (F5)": ["To change the language, refresh the page (F5)", "Чтобы изменить язык, обнови страницу (F5)"]
+};
+
+let currentLanguage = localStorage.getItem("axionLanguage") || "uk";
+const languageIndex = { uk: -1, en: 0, ru: 1 };
+const translationEntries = Object.entries(uiText).sort((a, b) => b[0].length - a[0].length);
+function translateValue(value) {
+    if (currentLanguage === "uk" || !value) return value;
+    let result = value;
+    for (const [source, translated] of translationEntries) {
+        const target = Array.isArray(translated) ? translated[languageIndex[currentLanguage]] : translated;
+        if (target && result.includes(source)) result = result.split(source).join(target);
+    }
+    return result;
+}
+function translateElement(element) {
+    if (!element || element.nodeType !== Node.ELEMENT_NODE || /^(SCRIPT|STYLE)$/.test(element.tagName)) return;
+    for (const node of element.childNodes) {
+        if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()) {
+            const translated = translateValue(node.nodeValue);
+            if (translated !== node.nodeValue) node.nodeValue = translated;
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            translateElement(node);
+        }
+    }
+    ["placeholder", "aria-label", "title"].forEach(attribute => {
+        if (element.hasAttribute(attribute)) {
+            const original = element.getAttribute(attribute);
+            const translated = translateValue(original);
+            if (translated !== original) element.setAttribute(attribute, translated);
+        }
+    });
+}
+function translatePage() {
+    translateElement(document.body);
+    document.documentElement.lang = currentLanguage;
+}
+function changeLanguage(language) {
+    currentLanguage = language;
+    localStorage.setItem("axionLanguage", language);
+    translatePage();
+}
+const languageObserver = new MutationObserver(records => {
+    if (currentLanguage === "uk") return;
+    for (const record of records) {
+        if (record.type === "characterData") {
+            const node = record.target;
+            const translated = translateValue(node.nodeValue);
+            if (translated !== node.nodeValue) node.nodeValue = translated;
+        } else {
+            record.addedNodes.forEach(node => {
+                if (node.nodeType === Node.ELEMENT_NODE) translateElement(node);
+                else if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()) {
+                    const translated = translateValue(node.nodeValue);
+                    if (translated !== node.nodeValue) node.nodeValue = translated;
+                }
+            });
+        }
+    }
+});
+languageObserver.observe(document.body, { childList: true, subtree: true, characterData: true });
+changeLanguage(currentLanguage);
+
+function hideAll() { document.getElementById("axionID").style.display = "none";
+
+            document.getElementById("home").style.display = "none";
+            document.getElementById("profile").style.display = "none";
+
+            document.getElementById("games").style.display = "none";
+
+            document.getElementById("guessGame").style.display = "none";
+
+            document.getElementById("ticGame").style.display = "none";
+
+            document.getElementById("memoryGame").style.display = "none";
+
+            document.getElementById("reactionGame").style.display = "none";
+
+            document.getElementById("tools").style.display = "none";
+
+            document.getElementById("calculator").style.display = "none";
+document.getElementById("notes").style.display = "none";
+        }
+
+        function openGames() {
+
+            hideAll();
+
+            document.getElementById("games").style.display = "block";
+
+        }
+
+        function openTools() {
+
+            hideAll();
+
+            document.getElementById("tools").style.display = "block";
+
+        }
+
+        function openCalculator() {
+
+            hideAll();
+
+            document.getElementById("calculator").style.display = "block";
+
+        } function openNotes() {
+
+    hideAll();
+
+    document.getElementById("notes").style.display = "block";
+
+}
+
+        function goHome() {
+
+            hideAll();
+
+            document.getElementById("home").style.display = "block";
+
+        }
+
+        // Профіль гравця та статистика
+        const profileData = JSON.parse(localStorage.getItem("axionProfile") || "{}"); let axionPlayerID = localStorage.getItem("axionPlayerID");
+
+if (!axionPlayerID) {
+    axionPlayerID = "AX-" + Math.floor(100000 + Math.random() * 900000);
+
+    localStorage.setItem("axionPlayerID", axionPlayerID);
+}
+        let profileAvatar = profileData.avatar || "🎮";
+        let profileGames = Number(localStorage.getItem("axionGamesPlayed")) || 0;
+        let profileWins = Number(localStorage.getItem("axionGamesWon")) || 0;
+
+        function refreshProfile() {
+    document.getElementById("profileAvatar").textContent = profileAvatar;
+    document.getElementById("profileName").value = profileData.name || "";
+    document.getElementById("gamesPlayed").textContent = profileGames;
+    document.getElementById("gamesWon").textContent = profileWins;
+
+    document.getElementById("profileReactionBest").textContent =
+        reactionBest === null ? "—" : reactionBest + " мс";
+
+    document.getElementById("profileWinRate").textContent =
+        (profileGames ? Math.round(profileWins / profileGames * 100) : 0) + "%";
+
+    document.querySelectorAll(".avatar-options button").forEach(button => {
+        button.classList.toggle("selected", button.textContent === profileAvatar);
+    });
+
+    updateLevelDisplay();
+}
+
+
+      let notes = JSON.parse(localStorage.getItem("axionNotes")) || [];
+
+function saveNote() {
+    const input = document.getElementById("noteInput");
+    const text = input.value.trim();
+
+    if (text === "") {
+        alert("Спочатку напиши нотатку!");
+        return;
+    }
+
+    notes.push(text);
+
+    localStorage.setItem("axionNotes", JSON.stringify(notes));
+
+    input.value = "";
+
+    renderNotes();
+}
+
+function renderNotes() {
+    const list = document.getElementById("notesList");
+
+    list.innerHTML = "";
+
+    notes.forEach((note, index) => {
+        const item = document.createElement("div");
+        item.className = "game";
+
+        const text = document.createElement("p");
+        text.textContent = note;
+
+        const button = document.createElement("button");
+        button.textContent = "Видалити";
+        button.onclick = function() {
+            notes.splice(index, 1);
+            localStorage.setItem("axionNotes", JSON.stringify(notes));
+            renderNotes();
+        };
+
+        item.appendChild(text);
+        item.appendChild(button);
+        list.appendChild(item);
+    });
+} function openAxionID() {
+
+    hideAll();
+
+    document.getElementById("axionID").style.display = "block";
+
+    document.getElementById("axionAvatar").textContent = profileAvatar;
+    document.getElementById("axionName").textContent = profileData.name || "Гравець"; document.getElementById("axionPlayerID").textContent = axionPlayerID;
+
+    document.getElementById("axionLevel").textContent = Math.floor(playerXP / 100) + 1;
+    document.getElementById("axionXP").textContent = playerXP % 100;
+
+    document.getElementById("axionWins").textContent = profileWins;
+    document.getElementById("axionGames").textContent = profileGames;
+
+    document.getElementById("axionRate").textContent =
+        (profileGames ? Math.round(profileWins / profileGames * 100) : 0) + "%";
+
+}   function openProfile() {
+            hideAll();
+            document.getElementById("profile").style.display = "block";
+            refreshProfile();
+        }
+
+        function chooseAvatar(avatar) {
+            profileAvatar = avatar;
+            refreshProfile();
+        }
+
+        function saveProfile() {
+            profileData.name = document.getElementById("profileName").value.trim() || "Гравець";
+            profileData.avatar = profileAvatar;
+            localStorage.setItem("axionProfile", JSON.stringify(profileData));
+            refreshProfile();
+            alert("Профіль збережено!");
+        }
+
+        let playerXP = Number(localStorage.getItem("axionXP")) || 0;
+
+function updateLevelDisplay() {
+    const level = Math.floor(playerXP / 100) + 1;
+    const progress = playerXP % 100;
+
+    document.getElementById("playerLevel").textContent = level;
+    document.getElementById("playerXP").textContent = progress;
+    document.getElementById("xpProgress").style.width = progress + "%";
+}
+
+function addXP(amount) {
+    playerXP += amount;
+    localStorage.setItem("axionXP", String(playerXP));
+    updateLevelDisplay();
+}
+
+function countPlayedGame() {
+    profileGames++;
+    localStorage.setItem("axionGamesPlayed", String(profileGames));
+    addXP(10);
+}
+
+function countGameWin() {
+    profileWins++;
+    localStorage.setItem("axionGamesWon", String(profileWins));
+    addXP(25);
+}
+
+
+        function backToGames() {
+
+            openGames();
+
+        }
+
+        // Гра «Вгадай число»
+
+        let secretNumber;
+
+        let attempts = 0;
+
+        let gameFinished = false;
+
+        function openGuessGame() {
+            countPlayedGame();
+
+            hideAll();
+
+            document.getElementById("guessGame").style.display = "block";
+
+            resetGame();
+
+        }
+
+        function resetGame() {
+
+            secretNumber = Math.floor(Math.random() * 100) + 1;
+
+            attempts = 0;
+
+            gameFinished = false;
+
+            document.getElementById("guessInput").value = "";
+
+            document.getElementById("guessInput").disabled = false;
+
+            document.getElementById("message").textContent =
+
+                "Чекаю на твою відповідь!";
+
+            document.getElementById("attempts").textContent = "Спроби: 0";
+
+        }
+
+        function checkGuess() {
+
+            if (gameFinished) return;
+
+            const input = document.getElementById("guessInput");
+
+            const guess = Number(input.value);
+
+            const message = document.getElementById("message");
+
+            if (!input.value || !Number.isInteger(guess) ||
+
+                guess < 1 || guess > 100) {
+
+                message.textContent = "Введи число від 1 до 100!";
+
+                return;
+
+            }
+
+            attempts++;
+
+            if (guess === secretNumber) {
+
+                message.textContent = "Правильно! Ти вгадав! 🎉";
+                countGameWin();
+
+                gameFinished = true;
+
+                input.disabled = true;
+
+            } else if (guess < secretNumber) {
+
+                message.textContent = "Моє число більше!";
+
+            } else {
+
+                message.textContent = "Моє число менше!";
+
+            }
+
+            document.getElementById("attempts").textContent =
+
+                "Спроби: " + attempts;
+
+            input.value = "";
+
+            if (!gameFinished) input.focus();
+
+        }
+
+        document.getElementById("guessInput").addEventListener(
+
+            "keydown", function(event) {
+
+                if (event.key === "Enter") checkGuess();
+
+            }
+
+        );
+
+        // Гра «Хрестики-нулики»
+
+        let board = ["", "", "", "", "", "", "", "", ""];
+
+        let ticFinished = false;
+
+        let playerScore = 0;
+
+        let computerScore = 0;
+
+        let drawScore = 0;
+
+        const winLines = [
+
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+
+            [0, 4, 8], [2, 4, 6]
+
+        ];
+
+        function openTicGame() {
+            countPlayedGame();
+
+            hideAll();
+
+            document.getElementById("ticGame").style.display = "block";
+
+            newTicGame();
+
+        }
+
+        function updateBoard() {
+
+            const cells = document.querySelectorAll(".cell");
+
+            cells.forEach((cell, index) => {
+
+                cell.textContent = board[index];
+
+            });
+
+        }
+
+        function getWinner() {
+
+            for (const line of winLines) {
+
+                const [a, b, c] = line;
+
+                if (board[a] &&
+
+                    board[a] === board[b] &&
+
+                    board[a] === board[c]) {
+
+                    return board[a];
+
+                }
+
+            }
+
+            return null;
+
+        }
+
+        function finishTicGame(winner) {
+
+            ticFinished = true;
+
+            if (winner === "X") {
+
+                playerScore++;
+                countGameWin();
+
+                document.getElementById("ticMessage").textContent =
+
+                    "Ти переміг! 🎉";
+
+            } else if (winner === "O") {
+
+                computerScore++;
+
+                document.getElementById("ticMessage").textContent =
+
+                    "Комп'ютер переміг!";
+
+            } else {
+
+                drawScore++;
+
+                document.getElementById("ticMessage").textContent =
+
+                    "Нічия!";
+
+            }
+
+            updateScore();
+
+        }
+
+        function updateScore() {
+
+            document.getElementById("score").textContent =
+
+                "Ти: " + playerScore +
+
+                " | Комп'ютер: " + computerScore +
+
+                " | Нічия: " + drawScore;
+
+        }
+
+        function makeMove(index) {
+
+            if (ticFinished || board[index] !== "") return;
+
+            board[index] = "X";
+
+            updateBoard();
+
+            if (getWinner()) {
+
+                finishTicGame("X");
+
+                return;
+
+            }
+
+            if (board.every(cell => cell !== "")) {
+
+                finishTicGame(null);
+
+                return;
+
+            }
+
+            document.getElementById("ticMessage").textContent =
+
+                "Хід комп'ютера...";
+
+            setTimeout(computerMove, 400);
+
+        }
+
+        function computerMove() {
+
+            if (ticFinished) return;
+
+            let move = findBestMove("O");
+
+            if (move === -1) move = findBestMove("X");
+
+            if (move === -1) {
+
+                move = board.findIndex(cell => cell === "");
+
+            }
+
+            if (move !== -1) {
+
+                board[move] = "O";
+
+            }
+
+            updateBoard();
+
+            if (getWinner()) {
+
+                finishTicGame("O");
+
+            } else if (board.every(cell => cell !== "")) {
+
+                finishTicGame(null);
+
+            } else {
+
+                document.getElementById("ticMessage").textContent =
+
+                    "Твій хід!";
+
+            }
+
+        }
+
+        function findBestMove(symbol) {
+
+            for (let i = 0; i < 9; i++) {
+
+                if (board[i] !== "") continue;
+
+                board[i] = symbol;
+
+                const wins = getWinner() === symbol;
+
+                board[i] = "";
+
+                if (wins) return i;
+
+            }
+
+            return -1;
+
+        }
+
+        function newTicGame() {
+
+            board = ["", "", "", "", "", "", "", "", ""];
+
+            ticFinished = false;
+
+            updateBoard();
+
+            document.getElementById("ticMessage").textContent =
+
+                "Твій хід!";
+
+        }
+
+        // Гра Memory
+
+        const memorySymbols = ["🍀", "🚀", "🎮", "🌙", "⚡", "🎧", "💎", "🔥"];
+
+        let memoryFirst = null;
+
+        let memorySecond = null;
+
+        let memoryLock = false;
+
+        let memoryMoves = 0;
+
+        let memoryPairs = 0;
+
+        function openMemoryGame() {
+            countPlayedGame();
+
+            hideAll();
+
+            document.getElementById("memoryGame").style.display = "block";
+
+            newMemoryGame();
+
+        }
+
+        function newMemoryGame() {
+
+            const cards = [...memorySymbols, ...memorySymbols]
+
+                .sort(() => Math.random() - 0.5);
+
+            memoryFirst = null;
+
+            memorySecond = null;
+
+            memoryLock = false;
+
+            memoryMoves = 0;
+
+            memoryPairs = 0;
+
+            document.getElementById("memoryStats").textContent = "Ходи: 0 | Знайдено пар: 0/8";
+
+            document.getElementById("memoryMessage").textContent = "Обери дві картки!";
+
+            const boardElement = document.getElementById("memoryBoard");
+
+            boardElement.innerHTML = "";
+
+            cards.forEach((symbol, index) => {
+
+                const card = document.createElement("button");
+
+                card.className = "memory-card";
+
+                card.textContent = "?";
+
+                card.setAttribute("aria-label", "Закрита картка");
+
+                card.addEventListener("click", () => flipMemoryCard(card, symbol));
+
+                boardElement.appendChild(card);
+
+            });
+
+        }
+
+        function flipMemoryCard(card, symbol) {
+
+            if (memoryLock || card.classList.contains("matched") || card === memoryFirst) return;
+
+            card.textContent = symbol;
+
+            card.setAttribute("aria-label", symbol);
+
+            if (!memoryFirst) {
+
+                memoryFirst = card;
+
+                return;
+
+            }
+
+            memorySecond = card;
+
+            memoryMoves++;
+
+            document.getElementById("memoryStats").textContent =
+
+                "Ходи: " + memoryMoves + " | Знайдено пар: " + memoryPairs + "/8";
+
+            if (memoryFirst.textContent === memorySecond.textContent) {
+
+                memoryFirst.classList.add("matched");
+
+                memorySecond.classList.add("matched");
+
+                memoryFirst.disabled = true;
+
+                memorySecond.disabled = true;
+
+                memoryPairs++;
+
+                memoryFirst = null;
+
+                memorySecond = null;
+
+                document.getElementById("memoryStats").textContent =
+
+                    "Ходи: " + memoryMoves + " | Знайдено пар: " + memoryPairs + "/8";
+
+                if (memoryPairs === 8) {
+
+                    countGameWin();
+                    document.getElementById("memoryMessage").textContent =
+
+                        "Перемога! Ти знайшов усі пари за " + memoryMoves + " ходів! 🎉";
+
+                }
+
+            } else {
+
+                memoryLock = true;
+
+                setTimeout(() => {
+
+                    memoryFirst.textContent = "?";
+
+                    memorySecond.textContent = "?";
+
+                    memoryFirst.setAttribute("aria-label", "Закрита картка");
+
+                    memorySecond.setAttribute("aria-label", "Закрита картка");
+
+                    memoryFirst = null;
+
+                    memorySecond = null;
+
+                    memoryLock = false;
+
+                }, 800);
+
+            }
+
+        }
+
+        // Reaction Test
+
+        let reactionState = "idle";
+
+        let reactionTimer = null;
+
+        let reactionStartTime = 0;
+
+        let reactionTimes = [];
+
+        let reactionRound = 0;
+
+        let reactionBest = Number(localStorage.getItem("axionReactionBest")) || null;
+
+        function openReactionGame() {
+            countPlayedGame();
+
+            hideAll();
+
+            document.getElementById("reactionGame").style.display = "block";
+
+            resetReactionTest();
+
+        }
+
+        function updateReactionStats() {
+
+            const average = reactionTimes.length
+
+                ? Math.round(reactionTimes.reduce((sum, value) => sum + value, 0) / reactionTimes.length) + " мс"
+
+                : "—";
+
+            const best = reactionBest === null ? "—" : reactionBest + " мс";
+
+            document.getElementById("reactionStats").textContent =
+
+                "Раунд: " + reactionRound + "/5 | Середній час: " + average + " | Рекорд: " + best;
+
+        }
+
+        function resetReactionTest() {
+
+            clearTimeout(reactionTimer);
+
+            reactionState = "idle";
+
+            reactionTimes = [];
+
+            reactionRound = 0;
+
+            const area = document.getElementById("reactionArea");
+
+            area.className = "reaction-area";
+
+            document.getElementById("reactionPrompt").textContent = "Натисни «Почати тест», щоб почати.";
+
+            document.getElementById("reactionResult").textContent = "Тест складається з 5 раундів.";
+
+            document.getElementById("reactionStart").textContent = "Почати тест";
+
+            document.getElementById("reactionStart").style.display = "inline-block";
+
+            updateReactionStats();
+
+        }
+
+        function startReactionTest() {
+
+            clearTimeout(reactionTimer);
+
+            reactionTimes = [];
+
+            reactionRound = 1;
+
+            document.getElementById("reactionStart").style.display = "none";
+
+            document.getElementById("reactionResult").textContent = "";
+
+            updateReactionStats();
+
+            prepareReactionRound();
+
+        }
+
+        function prepareReactionRound() {
+
+            reactionState = "waiting";
+
+            const area = document.getElementById("reactionArea");
+
+            area.className = "reaction-area waiting";
+
+            document.getElementById("reactionPrompt").textContent = "Чекай на зелений колір...";
+
+            reactionTimer = setTimeout(() => {
+
+                reactionState = "ready";
+
+                reactionStartTime = performance.now();
+
+                area.className = "reaction-area ready";
+
+                document.getElementById("reactionPrompt").textContent = "НАТИСКАЙ!";
+
+            }, 1500 + Math.random() * 2500);
+
+        }
+
+        function reactionClick() {
+
+            if (reactionState === "waiting") {
+
+                clearTimeout(reactionTimer);
+
+                reactionState = "idle";
+
+                document.getElementById("reactionArea").className = "reaction-area too-soon";
+
+                document.getElementById("reactionPrompt").textContent = "Зарано! 😅";
+
+                document.getElementById("reactionResult").textContent = "Натисни «Почати тест» і спробуй ще раз.";
+
+                document.getElementById("reactionStart").textContent = "Спробувати ще раз";
+
+                document.getElementById("reactionStart").style.display = "inline-block";
+
+                reactionRound = 0;
+
+                reactionTimes = [];
+
+                updateReactionStats();
+
+                return;
+
+            }
+
+            if (reactionState !== "ready") return;
+
+            const elapsed = Math.round(performance.now() - reactionStartTime);
+
+            reactionTimes.push(elapsed);
+
+            if (reactionBest === null || elapsed < reactionBest) {
+
+                reactionBest = elapsed;
+
+                localStorage.setItem("axionReactionBest", String(reactionBest));
+
+            }
+
+            if (reactionRound < 5) {
+
+                document.getElementById("reactionResult").textContent = "Час: " + elapsed + " мс. Наступний раунд!";
+
+                reactionRound++;
+
+                updateReactionStats();
+
+                prepareReactionRound();
+
+            } else {
+
+                reactionState = "finished";
+                countGameWin();
+
+                document.getElementById("reactionArea").className = "reaction-area";
+
+                document.getElementById("reactionPrompt").textContent = "Тест завершено! 🎉";
+
+                const average = Math.round(reactionTimes.reduce((sum, value) => sum + value, 0) / reactionTimes.length);
+
+                document.getElementById("reactionResult").textContent = "Твій середній час: " + average + " мс";
+
+                document.getElementById("reactionStart").textContent = "Пройти ще раз";
+
+                document.getElementById("reactionStart").style.display = "inline-block";
+
+                updateReactionStats();
+
+            }
+
+        }
+
+        let calcExpression = "";
+
+        function updateCalc() {
+
+            document.getElementById("calcDisplay").value = calcExpression || "0";
+
+        }
+
+        function appendCalc(value) {
+
+            if (calcExpression.length >= 24 || calcExpression === "Помилка") calcExpression = "";
+
+            calcExpression += value;
+
+            updateCalc();
+
+        }
+
+        function clearCalc() {
+
+            calcExpression = "";
+
+            updateCalc();
+
+        }
+
+        function deleteCalc() {
+
+            calcExpression = calcExpression.slice(0, -1);
+
+            updateCalc();
+
+        }
+
+        function calculate() {
+
+            if (!calcExpression) return;
+
+            if (!/^[0-9+*/.() -]+$/.test(calcExpression)) {
+
+                calcExpression = "Помилка";
+
+                updateCalc();
+
+                calcExpression = "";
+
+                return;
+
+            }
+
+            try {
+
+                const result = Function('"use strict"; return (' + calcExpression + ')')();
+
+                if (!Number.isFinite(result)) throw new Error("Invalid result");
+
+                calcExpression = String(Number(result.toFixed(8)));
+
+            } catch {
+
+                calcExpression = "Помилка";
+
+            }
+
+            updateCalc();
+
+        }
+
+</script>
+
+</body>
+
+</html>
